@@ -11,8 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,7 +19,6 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.bernardpaula.cinema.domain.enums.EnumGeneroFilme;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "filme")
@@ -49,7 +46,7 @@ public class Filme implements Serializable{
 	private List<Ingresso> ingressos = new ArrayList<>();
 	
 	
-	@ManyToMany(mappedBy = "filmes", cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy = "filmes")
 	private List<Ator> atores = new ArrayList<>();
 
 	
