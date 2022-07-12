@@ -45,6 +45,12 @@ public class DBService {
 		Filme fil3 = new Filme(null, "Viajando", 2.25, EnumGeneroFilme.COMEDIA);
 		Filme fil4 = new Filme(null, "Troia", 2.1, EnumGeneroFilme.DRAMA);
 		Filme fil5 = new Filme(null, "Aquarela", 1.8, EnumGeneroFilme.SUSPENSE);
+		Filme fil6 = new Filme(null, "Auto Da Compadecida", 1.8, EnumGeneroFilme.COMEDIA);
+		Filme fil7 = new Filme(null, "Liga da Justiça", 1.2, EnumGeneroFilme.ACAO);
+		Filme fil8 = new Filme(null, "Amanhecer", 3.8, EnumGeneroFilme.SUSPENSE);
+		Filme fil9 = new Filme(null, "Indiana Jones", 2.0, EnumGeneroFilme.AVENTURA);
+		Filme fil10 = new Filme(null, "Mar Aberto", 5.8, EnumGeneroFilme.AVENTURA);
+		
 		
 		
 		Ator ator1 = new Ator(null, "Jones", "Codjuvante");
@@ -52,22 +58,37 @@ public class DBService {
 		Ator ator3 = new Ator(null, "Leny", "Codjuvante");
 		Ator ator4 = new Ator(null, "Raquel", "vilão");
 		Ator ator5 = new Ator(null, "Cristian", "Codjuvante");
-			
+		Ator ator6 = new Ator(null, "Lucas", "Vilão");
+		Ator ator7 = new Ator(null, "Larissa", "Principal");
+		Ator ator8 = new Ator(null, "Cris Albert", "Vilão");
+		Ator ator9 = new Ator(null, "Jina", "Codjuvante");
+		Ator ator10 = new Ator(null, "Karina", "Principal");
+		
 		
 		fil1.getAtores().addAll(Arrays.asList(ator1, ator2, ator3));
 		fil2.getAtores().addAll(Arrays.asList(ator1, ator5));
 		fil3.getAtores().addAll(Arrays.asList(ator3, ator4));
 		fil4.getAtores().addAll(Arrays.asList(ator3, ator5));
 		fil5.getAtores().addAll(Arrays.asList(ator1, ator3, ator2));
+		fil6.getAtores().addAll(Arrays.asList(ator1, ator8));
+		fil7.getAtores().addAll(Arrays.asList(ator5, ator3, ator9));
+		fil8.getAtores().addAll(Arrays.asList(ator7, ator6, ator10));
+		fil9.getAtores().addAll(Arrays.asList(ator6, ator8));
+		fil10.getAtores().addAll(Arrays.asList(ator10, ator5, ator9));
 		
 		ator1.getFilmes().addAll(Arrays.asList(fil1, fil2, fil5));
 		ator2.getFilmes().addAll(Arrays.asList(fil1, fil5));
 		ator3.getFilmes().addAll(Arrays.asList(fil1, fil3, fil4, fil5));
 		ator4.getFilmes().addAll(Arrays.asList(fil3));
 		ator5.getFilmes().addAll(Arrays.asList(fil2, fil4));
+		ator6.getFilmes().addAll(Arrays.asList(fil8, fil9));
+		ator7.getFilmes().addAll(Arrays.asList(fil8));
+		ator8.getFilmes().addAll(Arrays.asList(fil6, fil9));
+		ator9.getFilmes().addAll(Arrays.asList(fil7, fil10));
+		ator10.getFilmes().addAll(Arrays.asList(fil10, fil8));
 		
-		filmeRepo.saveAll(Arrays.asList(fil1, fil2, fil3, fil4, fil5));
-		atorRepo.saveAll(Arrays.asList(ator1, ator2, ator3, ator4, ator5));
+		filmeRepo.saveAll(Arrays.asList(fil1, fil2, fil3, fil4, fil5, fil6, fil7, fil8, fil9, fil10));
+		atorRepo.saveAll(Arrays.asList(ator1, ator2, ator3, ator4, ator5, ator6, ator7, ator8, ator9, ator10));
 	
 		
 		Ingresso in1 = new Ingresso(null, EnumTipoIngresso.INGRESSOINTEIRO, EnumCategoriaIngresso.INGRESSOFISICO, fil5);
