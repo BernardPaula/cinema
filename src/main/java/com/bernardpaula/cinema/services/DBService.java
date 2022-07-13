@@ -3,6 +3,7 @@ package com.bernardpaula.cinema.services;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.bernardpaula.cinema.domain.Ator;
@@ -23,6 +24,9 @@ import com.bernardpaula.cinema.repositories.SessaoRepository;
 public class DBService {
 
 	@Autowired
+	private BCryptPasswordEncoder pe;
+	
+	@Autowired
 	private AtorRepository atorRepo;
 	
 	@Autowired
@@ -40,16 +44,16 @@ public class DBService {
 	public void instantiateDatabase() {
 		
 		
-		Filme fil1 = new Filme(null, "A Cura", 1.3, EnumGeneroFilme.AVENTURA);
-		Filme fil2 = new Filme(null, "Asas", 1.25, EnumGeneroFilme.ACAO);
-		Filme fil3 = new Filme(null, "Viajando", 2.25, EnumGeneroFilme.COMEDIA);
-		Filme fil4 = new Filme(null, "Troia", 2.1, EnumGeneroFilme.DRAMA);
-		Filme fil5 = new Filme(null, "Aquarela", 1.8, EnumGeneroFilme.SUSPENSE);
-		Filme fil6 = new Filme(null, "Auto Da Compadecida", 1.8, EnumGeneroFilme.COMEDIA);
-		Filme fil7 = new Filme(null, "Liga da Justiça", 1.2, EnumGeneroFilme.ACAO);
-		Filme fil8 = new Filme(null, "Amanhecer", 3.8, EnumGeneroFilme.SUSPENSE);
-		Filme fil9 = new Filme(null, "Indiana Jones", 2.0, EnumGeneroFilme.AVENTURA);
-		Filme fil10 = new Filme(null, "Mar Aberto", 5.8, EnumGeneroFilme.AVENTURA);
+		Filme fil1 = new Filme(null, "A Cura", 1.3, EnumGeneroFilme.AVENTURA, pe.encode("123"));
+		Filme fil2 = new Filme(null, "Asas", 1.25, EnumGeneroFilme.ACAO, pe.encode("123"));
+		Filme fil3 = new Filme(null, "Viajando", 2.25, EnumGeneroFilme.COMEDIA, pe.encode("123"));
+		Filme fil4 = new Filme(null, "Troia", 2.1, EnumGeneroFilme.DRAMA, pe.encode("123"));
+		Filme fil5 = new Filme(null, "Aquarela", 1.8, EnumGeneroFilme.SUSPENSE, pe.encode("123"));
+		Filme fil6 = new Filme(null, "Auto Da Compadecida", 1.8, EnumGeneroFilme.COMEDIA, pe.encode("123"));
+		Filme fil7 = new Filme(null, "Liga da Justiça", 1.2, EnumGeneroFilme.ACAO, pe.encode("123"));
+		Filme fil8 = new Filme(null, "Amanhecer", 3.8, EnumGeneroFilme.SUSPENSE, pe.encode("123"));
+		Filme fil9 = new Filme(null, "Indiana Jones", 2.0, EnumGeneroFilme.AVENTURA, pe.encode("123"));
+		Filme fil10 = new Filme(null, "Mar Aberto", 5.8, EnumGeneroFilme.AVENTURA, pe.encode("123"));
 		
 		
 		

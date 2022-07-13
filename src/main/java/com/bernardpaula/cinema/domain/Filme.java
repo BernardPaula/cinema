@@ -19,6 +19,7 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.bernardpaula.cinema.domain.enums.EnumGeneroFilme;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "filme")
@@ -40,6 +41,9 @@ public class Filme implements Serializable{
 	@Column(name= "genero")
 	private EnumGeneroFilme genero;
 	
+	@JsonIgnore
+	private String senha;
+	
 	
 	
 	@OneToMany(mappedBy = "filme", cascade=CascadeType.ALL)
@@ -56,12 +60,13 @@ public class Filme implements Serializable{
 
 	public Filme(Integer id,
 			@NotEmpty(message = "Campo Obrigatório!") @Length(min = 1, max = 80, message = "O tamanho deve estar entre 1 e 80 caracteres.") String titulo,
-			Double duracao, EnumGeneroFilme genero) {
+			Double duracao, EnumGeneroFilme genero, String senha) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
 		this.duracao = duracao;
 		this.genero = genero;
+		this.senha = senha;
 	}
 
 
@@ -74,6 +79,14 @@ public class Filme implements Serializable{
 		this.id = id;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	
 
 	public String getTitulo() {
 		return titulo;
@@ -142,6 +155,8 @@ public class Filme implements Serializable{
 		Filme other = (Filme) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 	
 	
 }
